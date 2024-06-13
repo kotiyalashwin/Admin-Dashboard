@@ -1,0 +1,425 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* overflow-x: hidden; */
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 15% 85%;
+  background-color: var(--tertiary-color);
+}
+:root {
+  --primary-color: #1e1e1e;
+  --secondary-color: #faf8fa;
+  --tertiary-color: #2c2c2c;
+}
+
+.light-theme {
+  --primary-color: #faf8fa;
+  --secondary-color: #1e1e1e;
+  --tertiary-color: #faf8fa;
+}
+
+/* ==========================================HEADER AND NAVIGATION===================================================================== */
+
+.header {
+  width: (100% - 10%);
+  /* #0f142d */
+  background-color: var(--primary-color);
+  grid-column: 1 / auto;
+  align-content: center;
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+  transition: all 0.3s ease;
+}
+
+.nav {
+  cursor: pointer;
+  width: 100%;
+  height: 95%;
+  display: grid;
+  grid-template-columns: 10% 70% 18%;
+  grid-template-rows: 100%;
+  column-gap: 2px;
+  align-content: center;
+  color: var(--secondary-color);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.nav .nav_options {
+  display: flex;
+  align-items: center;
+}
+
+.nav_options_pnm {
+  justify-content: space-evenly;
+}
+
+#btn-menu {
+  padding: 6px;
+  background-color: transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease-in;
+}
+
+#btn-menu.active,
+#btn-menu:hover,
+.sidebar .dash,
+.sidebar a:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.btn-profile {
+  height: 85px;
+  width: 85px;
+  border-radius: 50%;
+  background-image: url(./Resources/profile-img.jpg);
+  background-position: center;
+  background-size: cover;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.nav_options_pnm i {
+  font-size: 2rem;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
+  background: #faf8fa;
+  margin-left: 8px;
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.search i {
+  font-size: 1.6rem;
+  padding: 4px;
+}
+
+.search input::placeholder {
+  opacity: 0.75;
+  align-self: center;
+}
+input {
+  width: 100%;
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 18px;
+}
+
+.nav_options_notnlog {
+  font-size: 1.2rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.nav_options_notnlog i {
+  font-size: 1.6rem;
+}
+
+.nav_options_notnlog img {
+  width: 8%;
+}
+
+/* ===========================================================MAIN======================================================================= */
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100vh;
+  transition: tranform 0.3s ease;
+  overflow: hidden;
+}
+
+/* =====================================================SIDEBAR=========================================================================== */
+
+.sidebar {
+  position: absolute;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: var(--primary-color);
+  transform: translateX(-100%);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.sidebar.active {
+  transform: translateX(0%);
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.sidebar ul li {
+  list-style-type: none;
+  text-align: center;
+}
+
+.sidebar ul {
+  height: 60%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.sidebar a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+  padding: 6px 8px;
+  background-color: transparent;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  transition: color 0.2s ease-in-out;
+}
+.sidebar a i {
+  margin-right: 4px;
+}
+
+span {
+  text-align: center;
+}
+
+.gain p {
+  color: #00a97f;
+  margin-right: 4px;
+}
+
+/* ======================================================DASHBOARD====================================================================== */
+
+.dashboard {
+  width: 100%;
+  /* background-color: #dae8e8; */
+  /* background: #c0c0c0; */
+  /* background-color: var(--secondary-color); */
+  /* background-color: #252526; */
+  /* background-image: linear-gradient(
+    to bottom,
+    #051937,
+    #0c1631,
+    #10132c,
+    #121026,
+    #130d21
+  ); */
+  margin-left: 0;
+  padding: 15px;
+  transition: margin-left 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.dashboard.active {
+  margin-left: 180px;
+}
+
+/* =========================================================BASIC DETAILS============================================================= */
+
+.basic-stat {
+  display: flex;
+  width: calc(100% - 250px);
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  height: 17vh;
+  min-height: 15vh;
+  /* background: pink; */
+}
+
+.basic-info {
+  width: 360px;
+  background-color: var(--primary-color);
+  height: 100%;
+  transition: transform 0.1s ease;
+  cursor: pointer;
+  color: var(--secondary-color);
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: all 0.3s ease;
+}
+
+.basic-info:hover {
+  transform: scale(1.1);
+}
+
+.info-icon {
+  color: var(--primary-color);
+  font-size: 2rem;
+  width: 65px;
+  align-content: center;
+  text-align: center;
+  padding: 6px;
+  background-color: var(--secondary-color);
+  height: 65px;
+  border-radius: 100%;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+}
+
+.info-text {
+  padding: 8px;
+}
+
+.info-text p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ===========================================================FULL DETAILS================================================================ */
+
+.more-detail {
+  margin-top: 20px;
+  width: calc(100% - 250px);
+  /* border: 1px solid black; */
+  /* background-color: #6b8187; */
+  height: 50vh;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.collab-progress {
+  background-color: var(--primary-color);
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: var(--secondary-color);
+  padding: 8px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: all 0.3s ease;
+}
+
+.collab-progress p,
+.collab-payments p {
+  font-size: 1.4rem;
+  padding: 8px;
+  color: var(--secondary-color);
+  margin: 4px 6px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.collab-progress i,
+.collab-payments i {
+  margin-right: 4px;
+  font-size: 2.5rem;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--tertiary-color);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 8px 0px;
+  transition: all 0.3s ease;
+}
+
+.progress-bar {
+  background-color: #ccc;
+  width: 40%;
+  height: 35%;
+  border-radius: 80px;
+}
+
+.progress-load {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.progress-1 {
+  background: #61e294;
+
+  animation: progress1 3s ease forwards;
+}
+
+.progress-2 {
+  background-color: #db2955;
+  animation: progress2 3s ease forwards;
+}
+
+.progress-3 {
+  background-color: #f4d35e;
+  animation: progress3 3s ease forwards;
+}
+
+.collab-payments {
+  background-color: var(--primary-color);
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 8px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: all 0.3s ease;
+}
+
+.payments-container {
+  background-color: var(--tertiary-color);
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: all 0.3s ease;
+}
+
+.payments-container p {
+  font-size: 1.2rem;
+}
+
+.payments-container .cred {
+  color: #00a97f;
+}
+
+/* =============================================================ANIMATIONS================================================================== */
+@keyframes progress1 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 75%;
+  }
+}
+
+@keyframes progress2 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 25%;
+  }
+}
+
+@keyframes progress3 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 50%;
+  }
+}
